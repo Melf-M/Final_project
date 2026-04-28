@@ -79,23 +79,42 @@
       min-height:64px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:1rem;
+      gap:2rem;
     }
 
     .topbar-right{
       display:flex;
       align-items:center;
       gap:1rem;
+      flex:1;
+      min-width:0;
+      margin-left:4rem;
+    }
+
+    .nav{
+      display:flex;
+      gap:1rem;
       flex-wrap:wrap;
-      justify-content:flex-end;
+      justify-content:flex-start;
+      margin-right:auto;
+    }
+
+    .theme-toggle{
+      flex-shrink:0;
     }
 
     .brand{
-      font-size:.95rem;
+      flex-shrink:0;
+      width:145px;
+      font-size:.78rem;
+      line-height:1.25;
       letter-spacing:.08em;
       text-transform:uppercase;
       color:var(--muted);
+    }
+
+    .brand span{
+      display:block;
     }
 
     .nav{
@@ -378,7 +397,7 @@
     }
 
     .plot-map .plot-embed{
-      height:735px;
+      height:620px;
       background:#ffffff;
     }
     .plot-int-map .plot-embed{
@@ -429,6 +448,7 @@
   .topbar-right{
     align-items:flex-start;
   }
+  
 
   .hero{
     padding:64px 0 44px;
@@ -463,11 +483,19 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">02806 data visualization final project</div>
+      <div class="brand">
+        <span>02806</span>
+        <span>Data visualization</span>
+        <span>Final project</span>
+      </div>
       <div class="topbar-right">
         <nav class="nav">
           <a href="#intro">Introduction</a>
           <a href="#overview">Overview</a>
+          <a href="#temporal">Temporal distributions</a>
+          <a href="#spatial">Spatial distributions</a>
+          <a href="#factor">Primary crash factors</a>
+          <a href="#spatial">Interactive map</a>
           <a href="#conclusion">Conclusion</a>
         </nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
@@ -616,7 +644,7 @@
           <figure class="plot feature-plot plot-map">
             <div class="plot-label">
               <strong></strong>
-              <span>This choropleth map shows how
+              <span>Make this plot smaller (more compact) in python so we can downscale it a bit.
               </span>
             </div>
             <div class="plot-body plot-body-embed">
@@ -631,13 +659,13 @@
         </div>
       </div>
     </section>
-    <section class="section" id="Primary contributing crash factors">
+    <section class="section" id="factor">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
           <h2>Contributing factors to crashes</h2>
           <p>
-            Which factors contribute most to crash categories?
+            Which factors contribute most to crash categories? <- make this plot a little smaller also
           </p>
         </div>
         <div class="story-block">
@@ -664,7 +692,7 @@
         </div>
       </div>
     </section>
-    <section class="section" id="Interactive map">
+    <section class="section" id="map">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
