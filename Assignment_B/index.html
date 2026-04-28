@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New York City collisions (2013–2025)</title>
+  <style>
+    :root{
+      --bg:#111418;
+      --bg-soft:#171c22;
+      --surface:#1b2128;
+      --line:rgba(255,255,255,0.08);
+      --text:#edf1f5;
+      --muted:#b9c2cc;
+      --accent:#9ec5a2;
+      --topbar:rgba(17,20,24,0.82);
+      --embed-bg:#101317;
+      --maxw:1325px;
+      --radius:16px;
+    }
+
+    body.light-mode{
+      --bg:#f4f1ea;
+      --bg-soft:#ebe6dc;
+      --surface:#ffffff;
+      --line:rgba(0,0,0,0.10);
+      --text:#17202a;
+      --muted:#55616d;
+      --accent:#4d7c57;
+      --topbar:rgba(244,241,234,0.88);
+      --embed-bg:#f7f7f7;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+      color:var(--text);
+      line-height:1.7;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    img, iframe{
+      display:block;
+      width:100%;
+      max-width:100%;
+      border:0;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    figure{
+      margin:0;
+    }
+
+    .container{
+      width:min(calc(100% - 2rem), var(--maxw));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:var(--topbar);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    }
+
+    .topbar-inner{
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+    }
+
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .brand{
+      font-size:.95rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .nav{
+      display:flex;
+      gap:1.2rem;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .nav a:hover{
+      color:var(--text);
+    }
+
+    .theme-toggle{
+      appearance:none;
+      border:1px solid var(--line);
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
+      color:var(--text);
+      padding:.62rem .95rem;
+      border-radius:999px;
+      font:inherit;
+      font-size:.92rem;
+      cursor:pointer;
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle:hover{
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      padding:84px 0 56px;
+      border-bottom:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      font-size:.9rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+    }
+
+    h1{
+      margin:0 0 1rem;
+      font-size:clamp(2.6rem, 6vw, 5rem);
+      line-height:1.02;
+      letter-spacing:-0.04em;
+      max-width:none;
+      font-weight:700;
+    }
+
+    .lead{
+      margin:0;
+      max-width:none;
+      color:var(--muted);
+      font-size:1.06rem;
+    }
+
+    .meta{
+      display:flex;
+      gap:2rem;
+      flex-wrap:wrap;
+      margin-top:2rem;
+      padding-top:1.25rem;
+      border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent);
+    }
+
+    .meta-item{
+      min-width:140px;
+    }
+
+    .meta-label{
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.78rem;
+      margin-bottom:.35rem;
+    }
+
+    .meta-value{
+      font-size:1rem;
+    }
+
+    .section{
+      padding:48px 0;
+    }
+
+    .section + .section{
+      border-top:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+    }
+
+    .section-head{
+      margin-bottom:0.8rem;
+    }
+
+    .section-kicker{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.82rem;
+      margin-bottom:.55rem;
+    }
+
+    .section-head h2{
+      margin:0 0 .5rem;
+      font-size:clamp(1.9rem, 3vw, 2.7rem);
+      letter-spacing:-.03em;
+      font-weight:650;
+    }
+
+    .section-head p{
+      margin:0;
+      max-width:none;
+      color:var(--muted);
+    }
+
+    .story-block{
+      display:grid;
+      gap:1.2rem;
+    }
+
+    .story-intro,
+    .story-body,
+    .flow-text,
+    .closing{
+      max-width:none;
+    }
+
+    .story-intro p,
+    .story-body p,
+    .story-body li,
+    .flow-text p,
+    .flow-text li,
+    .closing p{
+      color:var(--muted);
+    }
+
+    .story-body h3,
+    .flow-text h3{
+      margin:0 0 .8rem;
+      font-size:1.05rem;
+      font-weight:600;
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+
+    .story-body ul,
+    .flow-text ul{
+      margin:.8rem 0 0 1.2rem;
+      padding:0;
+    }
+
+    .plot{
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      width:100%;
+    }
+
+    .plot-label{
+      padding:.95rem 1rem;
+      border-bottom:1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      background:color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+
+    .plot-label strong{
+      display:block;
+      font-size:1rem;
+      font-weight:600;
+      letter-spacing:-.01em;
+    }
+
+    .plot-label span{
+      display:block;
+      margin-top:.2rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .light-blue-link {
+      color: #66ccff;
+    }
+
+    .plot-body{
+      padding:1rem;
+    }
+
+    .plot-body.plot-body-embed{
+      padding:0;
+      line-height:0;
+    }
+
+    .plot img,
+    .plot iframe{
+      border-radius:12px;
+      background:var(--embed-bg);
+    }
+
+    .feature-plot{
+      margin:0;
+    }
+
+    .interactive-stack{
+      display:grid;
+      gap:2rem;
+    }
+
+    .plot-embed{
+      display:block;
+      width:100%;
+      border:0;
+      overflow:hidden;
+    }
+
+    .plot-map{
+      background:#ffffff;
+    }
+
+    .plot-map .plot-body{
+      padding:0;
+      line-height:0;
+      background:#ffffff;
+    }
+
+    .plot-map .plot-embed{
+      height:760px;
+      background:#ffffff;
+    }
+
+    .violin-embed{
+      height:670px;
+      background:var(--embed-bg);
+    }
+
+
+    .note{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:.95rem;
+      max-width:72ch;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.92em;
+    }
+
+    @media (max-width: 900px){
+      h1{
+        max-width:14ch;
+      }
+
+      .plot-map .plot-embed{
+        height:740px;
+      }
+
+      .violin-embed{
+        height:780px;
+      }
+    }
+
+    @media (max-width: 640px){
+  .topbar-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    justify-content:center;
+    padding:.8rem 0;
+  }
+
+  .topbar-right{
+    align-items:flex-start;
+  }
+
+  .hero{
+    padding:64px 0 44px;
+  }
+
+  .section{
+    padding:48px 0;
+  }
+
+  .container{
+    width:min(calc(100% - 1rem), var(--maxw));
+  }
+
+  .theme-toggle{
+    padding:.58rem .85rem;
+  }
+
+  .story-block{
+    gap:1.25rem;
+  }
+
+  .plot-map .plot-embed{
+    height:700px;
+  }
+
+  .violin-embed{
+    height:680px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">02806 data visualization project</div>
+      <div class="topbar-right">
+        <nav class="nav">
+          <a href="#intro">Introduction</a>
+          <a href="#overview">Overview</a>
+          <a href="#conclusion">Conclusion</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+          Light mode
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="intro">
+      <div class="container">
+        <div class="eyebrow">San Francisco 2017–2025</div>
+        <h1>The when where and who's in New york city crashes</h1>
+        <p class="lead">
+          This article ...
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"></div>
+          <h2>The overview</h2>
+          <p>
+            ?
+          </p>
+        </div>
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+            </p>
+          </div>
+
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Yearly trends</strong>
+              <span>The figure shows the aggregated burglary counts for SF district by year. The Covid-19 period is highlighted by red to seperate before, during and after period Covid period.
+                The main patterns visible are that most districts show a visible increase in burglary incidents during the start of the pandemic, though varying across districts.
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/burglary_trend.png" alt="Yearly trend of burglary crime in San Francisco">
+            </div>
+          </figure>
+
+          <div class="story-body">
+            <h3>Interpretation</h3>
+            <p>
+              Northern, Richmond and Park show relatively large burglary incidents increase at the start of covid and peak in 2020 before decreasing steadily after the covid period. Central, Southern and Tenderloin show similar tendencies but on a smaller scale. Taraval and Ingleside see an increase during covid and peak in 2021, whereafter it remains stable until 2025 where it decreases to count levels that are lower than before covid. Bayview also has a small steady increase from 2020-2022 where it peaks in 2022 and decreases after.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section" id="conclusion">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Reflection & Conclusion</div>
+          <h2>What changed during Covid-19?</h2>
+          <p>
+            In conclusion, 
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="contributions">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Contributions</div>
+          <p>
+            This project is made by Magnus Elfenbein (s214710) in the DTU course 02806.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="note">
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const storageKey = 'sf-burg-theme';
+
+      function applyTheme(mode) {
+        const isLight = mode === 'light';
+        body.classList.toggle('light-mode', isLight);
+        toggle.textContent = isLight ? 'Dark mode' : 'Light mode';
+        toggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      }
+
+      const saved = localStorage.getItem(storageKey);
+      applyTheme(saved === 'light' ? 'light' : 'dark');
+
+      toggle.addEventListener('click', function () {
+        const next = body.classList.contains('light-mode') ? 'dark' : 'light';
+        localStorage.setItem(storageKey, next);
+        applyTheme(next);
+      });
+    }());
+  </script>
+</body>
+</html>
