@@ -172,6 +172,8 @@
       min-width:140px;
     }
 
+
+
     .meta-label{
       color:var(--muted);
       text-transform:uppercase;
@@ -186,6 +188,12 @@
 
     .section{
       padding:48px 0;
+    }
+
+    .page-title {
+      font-size: 1.75rem; /* between typical h1 and h2 */
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     .section + .section{
@@ -259,7 +267,27 @@
       border-radius:var(--radius);
       overflow:hidden;
       width:100%;
+      margin:0 auto;
     }
+    /*.plot{
+      background:color-mix(in srgb, var(--surface) 82%, transparent);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+
+      width:900%;
+      max-width:1200px;
+
+      margin: 0 auto;
+    }
+    figure.plot{
+      width: 85% !important;
+      max-width: 1200px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: block !important;
+    }*/
+    
 
     .plot-label{
       padding:.95rem 1rem;
@@ -287,6 +315,29 @@
 
     .plot-body{
       padding:1rem;
+      overflow: hidden;
+    }
+    .plot-body img{
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      margin: 0 auto;
+    }
+    
+
+    .plot-body.img-medium img{
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .plot-medium{
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .plot-small{
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     .plot-body.plot-body-embed{
@@ -327,7 +378,11 @@
     }
 
     .plot-map .plot-embed{
-      height:760px;
+      height:735px;
+      background:#ffffff;
+    }
+    .plot-int-map .plot-embed{
+      height:650px;
       background:#ffffff;
     }
 
@@ -408,7 +463,7 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">02806 data visualization project</div>
+      <div class="brand">02806 data visualization final project</div>
       <div class="topbar-right">
         <nav class="nav">
           <a href="#intro">Introduction</a>
@@ -425,10 +480,12 @@
   <main>
     <section class="hero" id="intro">
       <div class="container">
-        <div class="eyebrow">San Francisco 2017–2025</div>
-        <h1>The when where and who's in New york city crashes</h1>
+        <div class="eyebrow">New York City 2013–2025</div>
+        <!--<h2>When and where are traffic incidents concentrated in New York City (NYC) and whom is it most dangerous for</h2>-->
+        <h1 class="page-title">When and where are harmful traffic incidents concentrated in New York City and who is most affected?</h1>
         <p class="lead">
-          This article ...
+          Harmful crash incidents in NYC ire not evenly distributed. They follows the city's daily rythm and is concentrated in different boroughs and intersections while 
+          affecting road users differently. This article will investigate this narrative by exploring a traffic collision dataset from NYC. The dataset comes from ... Talk about the dataset,how is an entry defined, what time period is spanned, what categories, boroughs etc.
         </p>
       </div>
     </section>
@@ -437,9 +494,9 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>The overview</h2>
+          <h2>The crash overview</h2>
           <p>
-            ?
+            Initial data overview and overall distribution so we give the audience a magnitude 
           </p>
         </div>
         <div class="story-block">
@@ -447,36 +504,207 @@
             <p>
             </p>
           </div>
-
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Yearly trends</strong>
-              <span>The figure shows the aggregated burglary counts for SF district by year. The Covid-19 period is highlighted by red to seperate before, during and after period Covid period.
-                The main patterns visible are that most districts show a visible increase in burglary incidents during the start of the pandemic, though varying across districts.
+              <strong>Yearly trend and distribution</strong>
+              <span>
               </span>
             </div>
             <div class="plot-body">
-              <img src="images/burglary_trend.png" alt="Yearly trend of burglary crime in San Francisco">
+              <img src="images/fig1.png" alt="Yearly trend and distribution of crash incidents in NYC">
             </div>
           </figure>
-
           <div class="story-body">
-            <h3>Interpretation</h3>
             <p>
-              Northern, Richmond and Park show relatively large burglary incidents increase at the start of covid and peak in 2020 before decreasing steadily after the covid period. Central, Southern and Tenderloin show similar tendencies but on a smaller scale. Taraval and Ingleside see an increase during covid and peak in 2021, whereafter it remains stable until 2025 where it decreases to count levels that are lower than before covid. Bayview also has a small steady increase from 2020-2022 where it peaks in 2022 and decreases after.
+              The figure...
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Yearly trend and distribution</strong>
+              <span>
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/fig2.png" alt="Share of crashes that result in injurt/fatality across catagories">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
             </p>
           </div>
         </div>
       </div>
     </section>
-
+    <section class="section" id="temporal">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"></div>
+          <h2>Do crash incidents and severity follow the city clock</h2>
+          <p>
+            Temporal analysis of crashes
+          </p>
+        </div>
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Temporal by borough</strong>
+              <span>
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/crash_dist_by_hour.png" alt="Temporal distribution of crahes by NYC borough">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Temporal by category</strong>
+              <span>
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/temporal_violins.png" alt="Temporal distribution of crash categories">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="spatial">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"></div>
+          <h2>Crash counts does not equal harm</h2>
+          <p>
+            How does crashes distribute by borough and how many are actually harmful?
+          </p>
+        </div>
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Spatial by borough</strong>
+              <span>
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/crash_severity_by_borough.png" alt="Crash severity by borough">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+          <figure class="plot feature-plot plot-map">
+            <div class="plot-label">
+              <strong></strong>
+              <span>This choropleth map shows how
+              </span>
+            </div>
+            <div class="plot-body plot-body-embed">
+              <iframe class="plot-embed" src="images/crash_harm_flows.html" title=""></iframe>
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="Primary contributing crash factors">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"></div>
+          <h2>Contributing factors to crashes</h2>
+          <p>
+            Which factors contribute most to crash categories?
+          </p>
+        </div>
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Primary contributing factors to crashes</strong>
+              <span>
+                ensure to explain that its the primary contributing factor in the dataset since there is multiple
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/contribute_chart.png" alt="Primary contributing crash factors">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="Interactive map">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"></div>
+          <h2>Interactive map of New York City</h2>
+          <p>
+            explore the map
+          </p>
+        </div>
+        <div class="story-block">
+          <div class="story-intro">
+            <p>
+            </p>
+          </div>
+          <figure class="plot feature-plot plot-int-map">
+            <div class="plot-label">
+              <strong></strong>
+              <span>This choropleth map shows how
+              </span>
+            </div>
+            <div class="plot-body plot-body-embed">
+              <iframe class="plot-embed" src="images/nyc_crash_clean_map_expanded.html" title=""></iframe>
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The figure...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     
 
+
+    
     <section class="section" id="conclusion">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Reflection & Conclusion</div>
-          <h2>What changed during Covid-19?</h2>
+          <h2>Crash</h2>
           <p>
             In conclusion, 
           </p>
@@ -488,7 +716,7 @@
         <div class="section-head">
           <div class="section-kicker">Contributions</div>
           <p>
-            This project is made by Magnus Elfenbein (s214710) in the DTU course 02806.
+            This exam project is made by Magnus Elfenbein (s214710) in the DTU course 02806.
           </p>
         </div>
       </div>
