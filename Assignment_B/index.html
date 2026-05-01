@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New York City collisions (2013–2025)</title>
+  <title>New York City crashes (2013–2025)</title>
   <style>
     :root{
       --bg:#111418;
@@ -210,9 +210,9 @@
     }
 
     .page-title {
-      font-size: 1.75rem; /* between typical h1 and h2 */
-      font-weight: 700;
-      margin-bottom: 1rem;
+      font-size: 3.0em; /* between typical h1 and h2 */
+      /* font-weight: 700;
+      margin-bottom: 1rem;*/
     }
 
     .section + .section{
@@ -512,8 +512,12 @@
         <!--<h2>When and where are traffic incidents concentrated in New York City (NYC) and whom is it most dangerous for</h2>-->
         <h1 class="page-title">When and where are harmful traffic incidents concentrated in New York City and who is most affected?</h1>
         <p class="lead">
-          Harmful crash incidents in NYC ire not evenly distributed. They follows the city's daily rythm and is concentrated in different boroughs and intersections while 
-          affecting road users differently. This article will investigate this narrative by exploring a traffic collision dataset from NYC. The dataset comes from ... Talk about the dataset,how is an entry defined, what time period is spanned, what categories, boroughs etc.
+          <!--Harmful crash incidents in NYC are not evenly distributed. -->
+          Traffic crashes in New York City and the harm they cause are not evenly distributed. They follows the city's daily rythm and is concentrated in different boroughs and intersections while 
+          affecting road users differently. This article will investigate this narrative by exploring a traffic collision dataset from NYC. The dataset comes from NYC OpenData [cite] and after initial preprocessing contain roughly 1.88 million crash incidents ranging from 2013 up to and including 2025. 
+          The dataset contain motor vehicle crashes in New York that are documented in the police report (MV104-AN). This police report is required to be filled out for crashes where someone is injured, killed or where there is at least 1000$ worth of damage.
+          <!--For each crash incident there is a distinction between four road user categories; Pedestrian, Cyclist, Motorist and Any person. Any person is defined to be the sum of people across the other three categories hence it can be intepreted as total number of injuries/fatalities. The dataset covers the five major boroughs in NYC namely; Bronx, Brooklyn, Manhatten, Queens and Staten Island.--> 
+          <!--The motivation for this exploratory analysis is to gain insight into the patterns of NYC collions-->
         </p>
       </div>
     </section>
@@ -522,9 +526,12 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>The crash overview</h2>
+          <h2>How large is the problem?</h2>
           <p>
-            Initial data overview and overall distribution so we give the audience a magnitude 
+            <!--Initial data overview and overall distribution so we give the audience a magnitude-->
+            This section develops an introduction into the scale of crashes in NYC. To understand the magnitude of the problem an initial exploration of the 
+            yearly trend and distributions are made. This helps motivate the problem and why it is interesting for public health. 
+            For each crash incident there is a distinction between four road user categories; Pedestrian, Cyclist, Motorist and Any person. Any person is defined to be the sum of people across the other three categories hence it can be intepreted as total number of injuries/fatalities.
           </p>
         </div>
         <div class="story-block">
@@ -534,8 +541,8 @@
           </div>
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Yearly trend and distribution</strong>
-              <span>
+              <strong>Crash distribution and yearly time series</strong>
+              <span>The first panel (left) shows the distribution of car crashes in the dataset. The second panel (right) illustrates the time series of car crashes from 2013-2025, with an average that highlights the trend. 
               </span>
             </div>
             <div class="plot-body">
@@ -544,13 +551,39 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              The right panel shows that the number of car crashes hsa large fluctuations throughout the years, however the 30-day average follow a fairly stable trend. The fluctuations suggest that car crashes has
+              some random components that cause spikes in some days while decreases in others. The 30-day average is a better indication on actual changes in the pattern which is fairly stable from 2013-2016 where a large drop happens. [cite] about this. Afterward the trend is seen to remain stable with possibly a seasonal pattern from 2017-2020 where a large drop occurs again.
+              This drop might be caused by corona [cite]. The pattern appear to not return to the former average and it can be seen that both the average trend and fluctuations remain smaller through 2021-2025. This general pattern is also visible through the left panel in the distributional view. It can be seen topbar-right
+              the distribution of car crashes appear bimodel with two major peaks. By relating this to the time series the first peak which distribute around a mean of 250 crashes a day represent the time after covid-19, whereas the second peak of around 500 crashes a day represent the time before. [cite] why?. 
+              <!--Write about why they never recovered, which can explain why its lower but maybe that the harm is still big and maybe it will recover again at some point. -->
+              Although the number of crahes decreased after covid-19, the harmfulness of these crashes did not.
             </p>
           </div>
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Yearly trend and distribution</strong>
+              <strong>Time series of number of people injured/killed by road user category anually</strong>
+              <span>The first panel (left) shows the time series of annually injured people by road user category. The second panel (right) illustrates the time series of anual killed people by road user category. 
+              </span>
+            </div>
+            <div class="plot-body">
+              <img src="images/fig_annual_injuries_fatalities_by_category.png" alt="t">
+            </div>
+          </figure>
+          <div class="story-body">
+            <p>
+              The left panel illustrates that the number of injured pedestrians and cyclists throughout the years were fairly constant. Pedestrians did drop a bit during covid, however began steadily increasing to pre covid levels. Motorist saw a rather large increase in injuries
+              from 2013 to 2019, whereafter there was a drop during covid. The motorist category increased after 2019 and through 2023-2025 were back to levels that were larger than previous 2014-2015 numbers. The right panel illustrates how the number of fatal car crashes changed throughout the years, where there are more fluctutations between years, likely due to the relative rarity of these incidents. 
+              There are no indications that the fatalities saw a drop during covid and the general trend looks to be fairly stable with deviations that appear random. 
+              This suggest that even though the number of car crashes has fluctuated a lot throughout and the years and even dropped drastically during and after covid, the harmful crashes 
+              are still a large problem.
+            </p>
+          </div>
+          <figure class="plot feature-plot">
+            <div class="plot-label">
+              <strong>Percentage of crashes that include injuries/fatalities by category</strong>
               <span>
+                The left panel shows the percentage of crashes that contain at least one injury, seperated by road user category. The right panel shows the percentage
+                of crashes that contain at least one fatality, seperated by road user category.
               </span>
             </div>
             <div class="plot-body">
@@ -559,7 +592,9 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              The left panel shows how almost 25% of all crashes contain at least one injury. This is split up into each different road user category where we can see that mostly motorist are involved in crashes with injuries at 15.5% of all documented crashes, wherafter 6% for pedestrians and 3% for cyclists. 
+              This suggest that motorists appear most often among injury involving crashes. The right panel shows that around 0.15% of crashes end up in a fatality, where pedestrians end up with being killed in 0.078% of crashes, motorist with 0.056% and the lowest frequency being cyclist at 0.013%. 
+              This suggest that pedestrians is the road user who are most often invovled in crashes with fatalities, whereas motorist is second to this. 
             </p>
           </div>
         </div>
