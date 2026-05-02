@@ -603,7 +603,7 @@
         <div class="story-body">
             <p>
               These figures show that the total amount of traffic crashes has changed substantially over time in New York City and in the later years even have had a large decrease. However the injury and fatality incidents 
-              has despite this, remained large and unevenly distributed across road users. 
+              has despite this, remained relativly large and unevenly distributed across road users. 
             </p>
           </div>
       </div>
@@ -612,9 +612,11 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>Do crash incidents and severity follow the city clock?</h2>
+          <h2>When do crashes happen and when are they most harmful?</h2>
           <p>
-            
+             The scale of crashes in NYC is one part of the story. To fully understand how crash harm distribute throughout the city, it is important to know when they happen.
+             New York City traffic moves daily in rythmes that are shaped by many components such as commuting, work, tourists and nightlife. Crahes may therefore be clustered around particular hours of the day that are most bussiest.
+             This section explores the temporal aspect of crash incidents throughout the boroughs and seeks to find out whether crash and crash harm follow the city clock.
           </p>
         </div>
         <div class="story-block">
@@ -624,8 +626,8 @@
           </div>
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Temporal by borough</strong>
-              <span>
+              <strong>Heatmap of how crashes distribute throughout the day hours in each borough</strong>
+              <span>The figure shows how each boroughs crash incidents are distributed throughout the day. The heatmap tiles are colored by intensity, deduced from the percentage of crashes by hour within each borough.
               </span>
             </div>
             <div class="plot-body">
@@ -634,13 +636,16 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              The figure shows that all boroughs differ slightly with their own pattern, however they appear to follow the same broad daily rythm. In every borough, crashes are concentrated during the daytime hours, especially during the late afternoon. The largest concetration of crashes appear between
+              14:00-19:00, while the morning hours 8:00-13:00 also show a high crash percentage. The evening hours 20:00-24:00 remain noticeble, however with a smaller share of crashes than throughout the business hour. The night and early morning hours
+              from 01:00-07:00 appear to contain the lowest share of crashes throughout all boroughs. The heatmap suggest that crashes do indeed follow the city clock. Crashes cluster in larger shares during commuting and business hours and are much less common during night and early morning. 
             </p>
           </div>
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Temporal by category</strong>
+              <strong>Boxplot + Violin; temporal distribution of crashes by road user category and severity.</strong>
               <span>
+                The boxplot visualize the spread of crash times, while the violins show the full time of day distribution for injuries and fatalities across the different road type users.
               </span>
             </div>
             <div class="plot-body">
@@ -649,7 +654,26 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              <!--The figure reveals that injuries are generally clustered throughout the business hours, while the fatalities show a more uniform distribution.
+              From the box and violins it is clear that most of motorist, cyclist and pedestrain injuries occur during the daytime hours. It is observed that the distribution
+              of these categories do however vary with motorist seeing a slightly more uniform distribution of injuries across all the day/evening hours where pedestrians and cyclist appear to be more
+              pushed toward the later part of the day, peaking at 18:00. Fatalities appear to have a completly different behavior. Generally fatalities are observed to be clustered more around evening and night time hours. The distribution
+              for pedestrians appear to be fairly uniform throughout the morning and day hours, with a peak during the late afternoon and evening hours. Cyclist follow the same behavior but are more uniform throughout the day hours and more clustered toward evening. Lastly 
+              motorist appear to have a bimodel distribution where two peaks are present; one during the night and one during the evening hours. The figure suggest that injuries tend to follow the overall temporal crash distribution as we saw in the previous figure while fatalities appear to
+              be more spread throughout the evening and nighttime hours. The individual road user categories differ and the figure suggest that pedestrians and cyclist get injured most often during the later afternoon, while motorist also tend to the later afternoon and evening.
+              For fatalities; pedestrians and cyclist distribute mostly through the day and evening hours while pedestrians peaking during the evening. The motorists appear to cluster toward night and late evening hours. This suggest that crash harm is not distributed evenly.-->
+             The figure suggest that injuries and fatalities follow different time of day patterns. Injuries appear to be concentrated strongly during the daytime and business horus which is consistent with the general crash pattern in the previous figure.
+             The distributions of the road user categories does however appear to differ from eachother. Motorist injuries appear to have a peak during 14:00-18:00, however overall fairly evenly distributed across daytime and evening hours. Pedestrians and cyclists injuries appear to be more concentrated
+             in the later afternoon with large peaks during 18:00 mark. 
+            </p>
+            <p>
+              In constrst to injuries, fatalities appear to not follow the same daytime crash rythm and are more concentrated in the evening and nighttime hours. 
+              Pedestrians and cyclists are spread more broadly across the day, however with both showing increased concentration during the later part of the day and into the evening.
+              Motorist fatalities differe the most from the rest and appear to have a bimodel pattern. This pattern has a peak during the night time hours and another during the evening. 
+            </p>
+            <p>
+              The figure overall suggest that crash harm is not evenly distributed across the day. Injuries appear to follow the broader daytime activity with most activity during the later afternoon, whereas
+              fatal crashes after shifted further toward the evening and night. In other words, the hours with the most crashes do not necessarily appear to be the hours with the most severe outcomes.
             </p>
           </div>
         </div>
@@ -659,9 +683,11 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>Crash counts does not equal harm</h2>
+          <h2>Where do crashes happen and where are they most harmful?</h2>
           <p>
-            How does crashes distribute by borough and how many are actually harmful?
+            The previous section investigated how crashes and crash harm follow the daily city rythm. 
+            The next step is to look at where crashes and crash harm concentrate throughout New York City. 
+            This section explores the spatial aspect of crashes, specifially how crashes ditribute across the different boroughs and whether crash severity is different across the boroughs.
           </p>
         </div>
         <div class="story-block">
@@ -671,8 +697,10 @@
           </div>
           <figure class="plot feature-plot">
             <div class="plot-label">
-              <strong>Spatial by borough</strong>
+              <strong>Crash counts and severity by borough</strong>
               <span>
+                The left panel shows how the total count of crashes recorded in each borough. The right panel shows how the outcome of crashes distribute across borough and the three categories; non-harmful, injury and fatal. Non-harmful is in this context defined as
+                no repoted injury or fatality. 
               </span>
             </div>
             <div class="plot-body">
@@ -681,13 +709,20 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              The left panel show how some of the boroughs differ substantially in total crash counts. Staten island has by far the fewest recorded crashes compared to the other boroughs.
+              Following this the Bronx has almost three times as many as Staten island and Manhatten with a little over four times as many. Lastly Brooklyn and Queens have the largest quantatity of crashes throughout the years with around six times as many as Staten island.
+              This sugegsts that crash indicents are not evenly distributed across the city.
+              The right panel shows that, despite the large differences in crash volumes, most boroughs share a similar crash severity distribution. Most boroughs has 23-26% of all crashes involve an injury, while Manhatten being the lowest with 20%. Fatal crashes remain rare in every borough, with only small differences in their propotions. 
+              The figure suggest that even though there is a large difference between the total amount of crashes across boroughs, the harm distrbutes similarily. Manhatten is a noteable exception; it has the third largest amount of crashes but in contrast the crashes result more often in non-harmful incidents.              
             </p>
           </div>
           <figure class="plot feature-plot plot-map">
             <div class="plot-label">
-              <strong></strong>
-              <span>Make this plot smaller (more compact) in python so we can downscale it a bit.
+              <strong>Sankey diagram that depicts crash flows from boroughs to road user</strong>
+              <span>
+                Interactive figure that visualize the total count of crashes from borough to their respective road user. By hovering on the flow links
+                it is possible to see the total number of crashes in the borough of the category, the share of borough injuries/fatalities to the cateogyr and how many
+                crashes injuries/fatalities per 100 crashes go toward this category. The left side show the injury flows while the right side shows the fatality flows.
               </span>
             </div>
             <div class="plot-body plot-body-embed">
@@ -696,7 +731,22 @@
           </figure>
           <div class="story-body">
             <p>
-              The figure...
+              The figure adds to the spatial story by showing how crash harm is distributed across road user groups within each borough. The left side show the injury flows, where motorist account for the largest share of recorded injuries in every borough.
+              This is especially clear for Brooklyn and Queens, which contribute with the largest amount of injuries in the flow. Pedestrians account for the second largest injury group and cyclist with the smallest. By further inspection it can be seen that Manhatten
+              has a more even contribution of flows to the three road users suggesting that Manhatten crashes are not dominated by motorist as much as the other boroughs. Further most within borough cyclist injuries happen in Brooklyn, Manhatten and Queens, whereas Bronx and Staten island
+              has a very low percentage share of injuries for cyclists. Mere?
+            </p>
+            <p>
+              The right side show the fatality flows, where pedestrians account for the largest share of fatal outcomes, followed closely by motorist and lastly cyclists which is noticeble smaller.
+              This show that the road users that are most oftenly injured are not the ones that are most often killed. Most boroughs have a fairly similar distribution with pedestrians and motorist sharing a large percentage count, while cyclist the lowest. 
+              Manhatten and Brooklyn has the largest cyclist percentages with over 10%, while Bronx, Staten island and Queens hover around 3-6%. Further Manhatten appear to have the largest percentage of within borough crashes that result in fatality of 64%, whereas Staten island has the lowest of 40%.
+            </p>
+          </div>
+          <div class="story-body">
+            <p>
+              Overall the figure suggest that crash harm is unevenly distributed across boroughs, but also across the different road type users. Motorists are dominated
+              in the injury cateogry, while predestrians apepar most often in fatal crashes. This aligns with the previous figure, that the crash harm is not evenly shared
+              spatially or among the road users.
             </p>
           </div>
         </div>
@@ -706,9 +756,11 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker"></div>
-          <h2>Contributing factors to crashes</h2>
+          <h2>What contributing factors are associated with crashes?</h2>
           <p>
-            Which factors contribute most to crash categories? <- make this plot a little smaller also
+             Thus far, the story has touched upon how crash is unevenly distributed across time, space and road user groups. Further the scale of the problem has been established in the beginning.
+             To continue the story and intepretation, this section revolves around the primary contributing factors for the crashes. These factors do not provide a complete explanation
+             of the crash, however gives insight in the conditions that lead to the crash.
           </p>
         </div>
         <div class="story-block">
@@ -720,7 +772,7 @@
             <div class="plot-label">
               <strong>Primary contributing factors to crashes</strong>
               <span>
-                ensure to explain that its the primary contributing factor in the dataset since there is multiple
+                This heatmap shows the conditional probability of injury/fatality given a primary contributing factor. Multiple contributing factors are listed for each crash ordered through 1..5. The primary factor is the first factor listed and hence chosen for this purpose.
               </span>
             </div>
             <div class="plot-body">
