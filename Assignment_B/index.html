@@ -510,15 +510,11 @@
     <section class="hero" id="intro">
       <div class="container">
         <div class="eyebrow">New York City 2013–2025</div>
-        <!--<h2>When and where are traffic incidents concentrated in New York City (NYC) and whom is it most dangerous for</h2>-->
         <h1 class="page-title">When and where are harmful traffic incidents concentrated in New York City and who is most affected?</h1>
         <p class="lead">
-          <!--Harmful crash incidents in NYC are not evenly distributed. -->
           Traffic crashes in New York City and the harm they cause are not evenly distributed. They follows the city's daily rythm and is concentrated in different boroughs and intersections, and
           affecting road users differently. This article will investigate this narrative by exploring a traffic collision dataset from NYC. The dataset comes from NYC OpenData (NYC Open Data. April 28, 2014) and after initial preprocessing contain roughly 1.88 million crash incidents ranging from 2013 up to and including 2025. 
-          The dataset contain motor vehicle crashes in New York that are documented in the police report (MV104-AN). This police report is required to be filled out for crashes where someone is injured, killed or where there is at least 1000$ worth of damage.
-          <!--For each crash incident there is a distinction between four road user categories; Pedestrian, Cyclist, Motorist and Any person. Any person is defined to be the sum of people across the other three categories hence it can be intepreted as total number of injuries/fatalities. The dataset covers the five major boroughs in NYC namely; Bronx, Brooklyn, Manhatten, Queens and Staten Island.--> 
-          <!--The motivation for this exploratory analysis is to gain insight into the patterns of NYC collions-->
+          The dataset contain motor vehicle crashes in New York that are reported by the police department and documented in the police report (MV104-AN). This police report is required to be filled out for crashes where someone is injured, killed or where there is at least 1000$ worth of damage.
         </p>
       </div>
     </section>
@@ -529,11 +525,9 @@
           <div class="section-kicker"></div>
           <h2>How large is the problem?</h2>
           <p>
-            <!--Initial data overview and overall distribution so we give the audience a magnitude-->
             This section introduces the scale of traffic crashes in New York City. The figures below give an overview on how crash incidents has changed over time and how often crashes result in injuries or fatalities. 
             This all provides an initial view on the size of the problem and why crash harm is an important topic in public health. 
             Throughout this article, injuries and fatalities are shown for both the different road type users and for "Any person", which represent the total across road users; predestrians, cyclists and motorist.
-            <!--For each crash incident there is a distinction between four road user categories; Pedestrian, Cyclist, Motorist and Any person. Any person is defined to be the sum of people across the other three categories hence it can be intepreted as total number of injuries/fatalities.-->
           </p>
         </div>
         <div class="story-block">
@@ -555,9 +549,10 @@
             <p>
               The right panel shows that the number of crashes has large fluctuations throughout the years, where the 30-day average highlights the long term term more clearly. The fluctuations suggest that traffic crashes has
               some random components that cause variation between the days. The 30-day average is a better indication on actual changes in the pattern which is fairly stable and generally higher from 2013 to 2019 whereafter a large drop occurs in 2020.
-              This drop might be caused by corona [cite]. The pattern appear to not return to the former average and it can be seen that both the average trend and fluctuations remain smaller through 2020-2025. This general pattern is also visible through the left panel in the distributional view. It can be seen that
-              the distribution of crashes appear bimodel with two major peaks. By relating this to the time series the first peak which distribute around a mean of 250 crashes a day represent the time after 2020, whereas the second peak of around 500 crashes a day represent the time before. [cite] why?. 
-              <!--Write about why they never recovered, which can explain why its lower but maybe that the harm is still big and maybe it will recover again at some point. -->
+              A possible explanation for this drop in crashe around 2020 is how covid-19 affected transportation and traffic volumes. Official NYC department of city planning reports significant decliens in vehicle miles traveled and vehicle collisions as stay at home measures were introduced (NYC Department of City planning's Transport division. (April 14, 2020)). The pattern appear to not return to the former average and it can be seen that both the average trend and fluctuations remain smaller through 2020-2025. This general pattern is also visible through the left panel in the distributional view. It can be seen that
+              the distribution of crashes appear bimodel with two major peaks. By relating this to the time series the first peak which distribute around a mean of 250 crashes a day represent the time after 2020, whereas the second peak of around 500 crashes a day represent the time before. 
+              The continued low in reported crashes after 2020 could be due to new policies that affected crash reportings. After april 6th 2020, vehicle collisions resulting only in property damage are not required to be report to the police, even if drivers still had to 
+              to file a seperate MV-104 report with the DMV when damage exceeds 1000$ (New York City police department. (n.d.).). Because the NYC collision dataset is based on police reported collisions, this reporting change may reflect a reduction in minor or property only crashes appearing after 2020.
               Therefore the the total crash volume changed a lot over time and even though it decreased after 2020, the next figures will show that this does not necessarily mean that the crash harm followed the same pattern.
             </p>
           </div>
@@ -577,7 +572,7 @@
               from 2013 to 2019, whereafter there was a drop. The motorist category increased after 2019 and through 2023-2025 were back to levels that were larger than previous 2014-2015 numbers. The right panel illustrates how the number of fatal crashes changed throughout the years. The figure shows that there are more fluctutations between years, likely due to fatalities being much rarer incidents than injuries. 
               Fatalities do not appear to have seen a drop during the same 2020 point as the general crash count and the general trend looks to be fairly stable with deviations that appear somewhat unexpainable. 
               This suggest that even though the number of traffic crashes has fluctuated a lot throughout and the years and even dropped drastically during and after 2020, the harmful crashes 
-              are still a large problem that remain.
+              are still a large problem that remain. Considering the reporting change in 2020, aside from the impact of covid in 2020, this figure supports that crash harm is still relativly similar throughout the years indicating that crash harm was not affected by the change in reporting policy.
             </p>
           </div>
           <figure class="plot feature-plot">
@@ -639,7 +634,7 @@
             <p>
               The figure shows that all boroughs differ slightly with their own pattern, however they appear to follow the same broad daily rythm. In every borough, crashes are concentrated during the daytime hours, especially during the late afternoon. The largest concetration of crashes appear between
               14:00-19:00, while the morning hours 8:00-13:00 also show a high crash percentage. The evening hours 20:00-24:00 remain noticeble, however with a smaller share of crashes than throughout the business hour. The night and early morning hours
-              from 01:00-07:00 appear to contain the lowest share of crashes throughout all boroughs. The heatmap suggest that crashes do indeed follow the city clock. Crashes cluster in larger shares during commuting and business hours and are much less common during night and early morning. 
+              from 01:00-07:00 appear to contain the lowest share of crashes throughout all boroughs. The heatmap suggest that crashes do indeed follow the city clock. Crashes appear to cluster in larger shares during commuting and business hours whereas they are much less common during night and early morning, possibly because of the larger quantaty of people in the network during the commuting hours. 
             </p>
           </div>
           <figure class="plot feature-plot">
@@ -655,14 +650,6 @@
           </figure>
           <div class="story-body">
             <p>
-              <!--The figure reveals that injuries are generally clustered throughout the business hours, while the fatalities show a more uniform distribution.
-              From the box and violins it is clear that most of motorist, cyclist and pedestrain injuries occur during the daytime hours. It is observed that the distribution
-              of these categories do however vary with motorist seeing a slightly more uniform distribution of injuries across all the day/evening hours where pedestrians and cyclist appear to be more
-              pushed toward the later part of the day, peaking at 18:00. Fatalities appear to have a completly different behavior. Generally fatalities are observed to be clustered more around evening and night time hours. The distribution
-              for pedestrians appear to be fairly uniform throughout the morning and day hours, with a peak during the late afternoon and evening hours. Cyclist follow the same behavior but are more uniform throughout the day hours and more clustered toward evening. Lastly 
-              motorist appear to have a bimodel distribution where two peaks are present; one during the night and one during the evening hours. The figure suggest that injuries tend to follow the overall temporal crash distribution as we saw in the previous figure while fatalities appear to
-              be more spread throughout the evening and nighttime hours. The individual road user categories differ and the figure suggest that pedestrians and cyclist get injured most often during the later afternoon, while motorist also tend to the later afternoon and evening.
-              For fatalities; pedestrians and cyclist distribute mostly through the day and evening hours while pedestrians peaking during the evening. The motorists appear to cluster toward night and late evening hours. This suggest that crash harm is not distributed evenly.-->
              The figure suggest that injuries and fatalities follow different time of day patterns. Injuries appear to be concentrated strongly during the daytime and business horus which is consistent with the general crash pattern in the previous figure.
              The distributions of the road user categories does however appear to differ from eachother. Motorist injuries appear to have a peak during 14:00-18:00, however overall fairly evenly distributed across daytime and evening hours. Pedestrians and cyclists injuries appear to be more concentrated
              in the later afternoon with large peaks during 18:00 mark. 
@@ -670,13 +657,14 @@
             <p>
               In constrst to injuries, fatalities appear to not follow the same daytime crash rythm and are more concentrated in the evening and nighttime hours. 
               Pedestrians and cyclists are spread more broadly across the day, however with both showing increased concentration during the later part of the day and into the evening.
-              Motorist fatalities differe the most from the rest and appear to have a bimodel pattern. This pattern has a peak during the night time hours and another during the evening. 
+              Motorist fatalities differe the most from the rest and appear to have a bimodel pattern. This pattern has a peak during the night time hours and another during the evening. These observations are consistent with 
+              the U.S. Department of transportation who argues that proper lighting and visibility in rural and urban intersections, crosswalks and roadway departures can help save lives (U.S. Department of transporation. (Last modified Match 2, 2026)).
             </p>
             <p>
               The figure overall suggest that crash harm is not evenly distributed across the day. Injuries appear to follow the broader daytime activity with most activity during the later afternoon, whereas
               fatal crashes after shifted further toward the evening and night. In other words, the hours with the most crashes do not necessarily appear to be the hours with the most severe outcomes.
             </p>
-          </div>
+          </div> 
         </div>
       </div>
     </section>
@@ -712,7 +700,7 @@
             <p>
               The left panel show how some of the boroughs differ substantially in total crash counts. Staten island has by far the fewest recorded crashes compared to the other boroughs.
               Following this the Bronx has almost three times as many as Staten island and Manhatten with a little over four times as many. Lastly Brooklyn and Queens have the largest quantatity of crashes throughout the years with around six times as many as Staten island.
-              This sugegsts that crash indicents are not evenly distributed across the city.
+              This suggests that crash indicents are not evenly distributed across the city. Part of this may reflect the broader activity scale in these boroughs since Brooklyn is also NYC most populous borough, followed by Queens, Manhatten, Bronx and lastly Staten Island (New York City, Department of city planning. (August, 2021)). 
               The right panel shows that, despite the large differences in crash volumes, most boroughs share a similar crash severity distribution. Most boroughs has 23-26% of all crashes involve an injury, while Manhatten being the lowest with 20%. Fatal crashes remain rare in every borough, with only small differences in their propotions. 
               The figure suggest that even though there is a large difference between the total amount of crashes across boroughs, the harm distrbutes similarily. Manhatten is a noteable exception; it has the third largest amount of crashes but in contrast the crashes result more often in non-harmful incidents.              
             </p>
@@ -761,7 +749,7 @@
           <p>
              Thus far, the story has touched upon how crash is unevenly distributed across time, space and road user groups. Further the scale of the problem has been established in the beginning.
              To continue the story and intepretation, this section revolves around the primary contributing factors for the crashes. These factors do not provide a complete explanation
-             of the crash, however gives insight in the conditions that lead to the crash.
+             of the crash, however gives insight in the conditions that are associated to crashes.
           </p>
         </div>
         <div class="story-block">
@@ -775,7 +763,6 @@
               <span>
                 This heatmap shows the conditional probability of the injury and fatalitiy outcomes given a repoted primary contributing factor in the crash record. 
                 Injuries are desplayed on the left side while fatalities on the right.
-                <!--Multiple contributing factors are listed for each crash ordered through 1..5. The primary factor is the first factor listed and hence chosen for this purpose.-->
               </span>
             </div>
             <div class="plot-body">
@@ -798,7 +785,7 @@
             </p>
             <p>
               Overall the figure reveals that many contrubiting factors repeats. There appear to be a broad pattern of factors contributing to injuries compared to the fatality outcomes which are rarer and more concentrated around a smaller number of factors including alchohol involvement, unsafe speeds and traffic control disregard. 
-              Further it also shows that the factor profiles differ across the road user groups, suggesting that the conditions associated with crash harm is not identical across pedestrians, cyclists and motorists. This indicates that crash harm is not only formed by when and where they happen but also by which factors that are present when they occur.
+              Further it also shows that the factor profiles differ across the road user groups, suggesting that the conditions associated with crash harm is not identical across pedestrians, cyclists and motorists. This indicates that crash harm is not only formed by when and where they happen but also by which factors that are present when they occur. 
             </p>
           </div>
         </div>
@@ -841,7 +828,6 @@
     <section class="section" id="conclusion">
       <div class="container">
         <div class="section-head">
-          <!--<div class="section-kicker">Conclusion</div>-->
           <h2>Conclusion</h2>
           <p>
             In conclusion, harmful traffic crashes are not evenly distributed temporally, spatially or across road users in New York City. Even though crash counts dropped after 2020, the issue of crash harm remained an issue. Crashes and injuries follow the cities daily rythm and are concentrated during the day hours and late afternoon, whereas fatalities occur mainly during the evening and night hours.
@@ -870,6 +856,31 @@
             City of New York. Retrieved April 7, 2026
             <a href="https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95" target="_blank">
               https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95
+            </a>
+          </p>
+          <p>
+            NYC Department of City planning's Transport division. (April 14, 2020). <em>Covid-19 impacts on transportation</em>.
+            City of New York. Retrieved May 12, 2026. 
+            <a href="https://www.nyc.gov/assets/planning/download/pdf/planning-level/transportation/covid19-transportation/20200414.pdf" target="_blank">
+              https://www.nyc.gov/assets/planning/download/pdf/planning-level/transportation/covid19-transportation/20200414.pdf
+            </a>
+          </p>
+          <p>
+            New York City police department. (n.d.). <em>Non-Injury Vehicle Collisions</em>.
+            <a href="https://www.nyc.gov/site/nypd/services/vehicles-property/non-injury-vehicle-collisions.page" target="_blank">
+              https://www.nyc.gov/site/nypd/services/vehicles-property/non-injury-vehicle-collisions.page
+            </a>
+          </p>
+          <p>
+            U.S. Department of transporation. (Last modified Match 2, 2026). <em>Nighttime Visibility for Safety</em>.
+            <a href="https://www.fhwa.dot.gov/innovation/everydaycounts/edc_7/nighttime_visibility.cfm" target="_blank">
+              https://www.fhwa.dot.gov/innovation/everydaycounts/edc_7/nighttime_visibility.cfm
+            </a>
+          </p>
+          <p>
+            New York City, Department of city planning. (August, 2021). <em>2020 Census results for New York City</em>.
+            <a href="https://www.nyc.gov/assets/planning/download/pdf/planning-level/nyc-population/census2020/dcp_2020-census-briefing-booklet-1.pdf" target="_blank">
+              https://www.nyc.gov/assets/planning/download/pdf/planning-level/nyc-population/census2020/dcp_2020-census-briefing-booklet-1.pdf
             </a>
           </p>
         </div>
